@@ -4,156 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Activity 1 — China De Oro</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.cdnfonts.com/css/chiron-go-round-tc" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
-
-  <style>
-    * { font-family: "Chiron GoRound TC", sans-serif !important; }
-    :root {
-      --c-bg:       #f2eefa; --c-border:   rgba(180,155,240,0.3);
-      --c-purple:   #7c3aed; --c-violet:   #a78bfa;
-      --c-ink:      #0f0a20; --c-muted:    #554a7d;
-      --c-faint:    #c4b5d9; --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-weight: 300; background-color: #f4f4f5; color: var(--c-ink); }
-    #main-content {
-      background-color: var(--c-bg);
-      background-image: radial-gradient(circle at 15% 0%, rgba(196,181,253,0.35) 0%, transparent 60%), radial-gradient(circle at 85% 100%, rgba(245,208,254,0.35) 0%, transparent 60%);
-      border-bottom-left-radius: 80px; border-bottom-right-radius: 80px;
-      position: relative; z-index: 10; box-shadow: 0 20px 60px rgba(0,0,0,0.08);
-      padding-top: 10rem; padding-bottom: 6rem; min-height: 100vh; overflow: hidden; 
-    }
-    #main-content::after {
-      content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 1000; opacity: 1;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23g)' opacity='0.026'/%3E%3C/svg%3E");
-    }
-    .display { font-weight: 500; letter-spacing: -0.025em; line-height: 1.05; }
-    nav {
-      position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 500;
-      display: flex; align-items: center; justify-content: space-between; gap: 3rem;
-      padding: 0.6rem 0.75rem 0.6rem 1.35rem; background: rgba(246, 242, 255, 0.6); backdrop-filter: blur(16px) saturate(120%);
-      border: 1px solid rgba(255,255,255,0.8); border-radius: 999px; box-shadow: 0 4px 24px rgba(0,0,0,0.03), inset 0 1.5px 0 rgba(255,255,255,0.8);
-    }
-    .logo { font-size: 0.88rem; font-weight: 600; color: var(--c-purple); text-decoration: none; display: flex; align-items: center; gap: 0.1rem; }
-    .logo .br { color: var(--c-violet); font-weight: 300; }
-    nav ul { list-style: none; display: flex; align-items: center; gap: 0.2rem; }
-    nav ul li a { display: block; padding: 0.4rem 0.9rem; border-radius: 999px; font-size: 0.82rem; font-weight: 450; color: var(--c-muted); text-decoration: none; transition: all 0.22s; }
-    nav ul li a:hover { color: var(--c-ink); background: rgba(124,58,237,0.07); }
-    .nav-resume { position: relative; overflow: hidden; z-index: 1; border: 1.5px solid transparent !important; background: transparent !important; color: #fff !important; box-shadow: 0 5px 28px rgba(124,58,237,0.38); transition: all 0.3s var(--ease-expo) !important; }
-    .nav-resume::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); z-index: -2; border-radius: 999px; }
-    .nav-resume::after { content: ''; position: absolute; inset: 0; background: #fff; border-radius: 999px; transform: translateY(100%); z-index: -1; transition: transform 0.4s var(--ease-expo); }
-    .nav-resume:hover::after { transform: translateY(0); }
-    .nav-resume:hover { color: var(--c-purple) !important; border-color: var(--c-purple) !important; transform: translateY(-3px) scale(1.02); }
-
-    .article-container { margin: 0 auto; max-width: 720px; width: calc(100% - 2rem); position: relative; }
-    .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--c-muted); text-decoration: none; margin-bottom: 2.5rem; transition: color 0.2s, transform 0.2s; }
-    .back-btn:hover { color: var(--c-purple); transform: translateX(-4px); }
-    .article-header { margin-bottom: 4rem; }
-    .article-tag { display: inline-block; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-purple); border: 1px solid rgba(124,58,237,0.2); border-radius: 999px; padding: 0.35rem 1rem; margin-bottom: 1.5rem; }
-    .article-title { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--c-ink); margin-bottom: 1.25rem; letter-spacing: -0.03em; }
-    .article-meta { font-size: 0.9rem; color: var(--c-muted); display: flex; gap: 1.25rem; align-items: center; font-weight: 500; }
-    .prose h3 { font-size: 1.5rem; color: var(--c-ink); margin: 3.5rem 0 1.25rem; font-weight: 600; letter-spacing: -0.01em; }
-    .prose p { font-size: 1.1rem; color: var(--c-muted); line-height: 1.75; margin-bottom: 1.5rem; }
-    .prose ul { margin-bottom: 1.5rem; padding-left: 1.25rem; color: var(--c-muted); line-height: 1.75; font-size: 1.1rem; }
-    .prose li { margin-bottom: 0.5rem; padding-left: 0.25rem; }
-    .prose strong { color: var(--c-ink); font-weight: 600; }
-
-    .mac-window { background: #18181b; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.15); text-align: left; margin: 3rem 0; width: 100%; }
-    .mac-chrome { background: #27272a; border-bottom: 1px solid #111; padding: 0.75rem 1rem; display: flex; align-items: center; position: relative; }
-    .traffic-lights { display: flex; gap: 8px; }
-    .mac-chrome .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dr { background: #ff5f56; box-shadow: inset 0 0 0 1px #e0443e; } .dy { background: #ffbd2e; box-shadow: inset 0 0 0 1px #dea123; } .dg { background: #27c93f; box-shadow: inset 0 0 0 1px #1aab29; } 
-    .file-name { position: absolute; left: 50%; transform: translateX(-50%); color: #a1a1aa; font-size: 0.8rem; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important; }
-    .code-content { padding: 1.5rem; overflow-x: auto; }
-    .code-content pre { margin: 0; font-size: 0.9rem; line-height: 1.6; color: #e4e4e7; font-family: monospace !important; }
-    .code-content .kw { color: #cba6f7; } .code-content .cl { color: #f9e2af; } .code-content .fn { color: #89b4fa; } .code-content .st { color: #a6e3a1; } .code-content .cm { color: #6c7086; font-style: italic; } 
-
-    .pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-top: 2rem; }
-    .pdf-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem; background: #fff; border: 1px solid var(--c-border); border-radius: 16px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.02); transition: all 0.3s var(--ease-expo); }
-    .pdf-card:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(124,58,237,0.08); border-color: var(--c-purple); }
-    .pdf-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(124,58,237,0.08); color: var(--c-purple); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
-    .pdf-info { flex: 1; }
-    .pdf-name { font-size: 0.95rem; font-weight: 600; color: var(--c-ink); display: block; margin-bottom: 0.2rem; }
-    .pdf-meta { font-size: 0.75rem; color: var(--c-muted); font-weight: 500; }
-    .pdf-action { font-size: 1rem; color: var(--c-muted); transition: color 0.2s; }
-    .pdf-card:hover .pdf-action { color: var(--c-purple); transform: translateX(2px); }
-
-    footer { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 1; display: flex; flex-direction: column; }
-    .footer-cta { background: linear-gradient(135deg, var(--c-purple) 0%, var(--c-violet) 100%); padding: 8rem 2rem 6rem 2rem; border-top-left-radius: 80px; border-top-right-radius: 80px; display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-    .social-circle { position: relative; overflow: hidden; z-index: 1; display: flex; align-items: center; justify-content: center; text-decoration: none; font-weight: 600; transition: border-color 0.3s var(--ease-expo), color 0.3s var(--ease-expo), transform 0.3s var(--ease-expo), box-shadow 0.3s var(--ease-expo); background: transparent; }
-    .social-circle::after { content: ''; position: absolute; inset: 0; background: #fff; border-radius: 50%; transform: scale(0); z-index: -1; transition: transform 0.4s var(--ease-expo); }
-    .social-circle:hover::after { transform: scale(1); }
-    .footer-cta .social-circle { width: 56px; height: 56px; border: 1.5px solid rgba(255, 255, 255, 0.4); border-radius: 50%; color: #fff; font-size: 1.4rem; }
-    .footer-cta .social-circle:hover { border-color: var(--c-purple); color: var(--c-purple); transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
-    .footer-bottom { background: #f4f4f5; padding: 2.5rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
-    .fb-center { display: flex; gap: 2rem; color: #6b7280; font-size: 0.95rem; font-weight: 500; }
-    .fb-right { display: flex; gap: 0.8rem; }
-    .fb-right .social-circle { width: 48px; height: 48px; border: 1.5px solid #d1d5db; border-radius: 50%; color: #111; font-size: 1.2rem; }
-    .fb-right .social-circle:hover { border-color: var(--c-purple); color: var(--c-purple); transform: translateY(-3px); }
-
-    @media (max-width: 768px) {
-      nav { width: calc(100% - 2rem); gap: 1rem; padding: 0.5rem; }
-      nav ul li a { padding: 0.35rem 0.5rem; font-size: 0.75rem; }
-      #main-content { border-bottom-left-radius: 40px; border-bottom-right-radius: 40px; }
-      .footer-cta { border-top-left-radius: 40px; border-top-right-radius: 40px; padding: 5rem 1.5rem 4rem; }
-      .footer-bottom { flex-direction: column; text-align: center; padding: 2rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
   <div id="main-content">
-    <nav id="navbar">
-      <a href="index.html#home" class="logo"><span class="br">&lt;/&gt;</span>CDO</a>
-      <ul>
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#midterm">Midterm</a></li>
-        <li><a href="index.html#final">Final</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="https://docs.google.com/document/d/1XfqsxC9pa2fqTujdYsi4zwqzz6N1YO5khrbL4adXYJo/edit?usp=sharing" class="nav-resume" target="_blank">Resume ↗</a></li>
-      </ul>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <article class="article-container">
-      <a href="index.html#midterm" class="back-btn">
-        <i class="fa-solid fa-arrow-left"></i> Back to Midterms
-      </a>
+      <a href="../index.html#midterm" class="back-btn">← Back to Midterms</a>
 
       <header class="article-header">
         <span class="article-tag">Lab Activity 1</span>
         <h1 class="article-title display">Variables & Memory Analysis</h1>
         <div class="article-meta">
-          <span><i class="fa-regular fa-calendar" style="margin-right:6px;"></i> Midterms</span>
-          <span><i class="fa-brands fa-java" style="margin-right:6px;"></i> Java OOP</span>
+          <span></i>➤  Midterms</span>
         </div>
       </header>
 
       <div class="prose">
         <h3>Explanation & Learnings</h3>
-        <p>
-          In this activity, I analyzed a Java program to trace object references and memory changes step-by-step. The main focus was understanding how variables are stored in memory—specifically the difference between the Stack (for local variables and references) and the Heap (for instance variables and actual object data).
-        </p>
-        <ul>
-          <li><strong>Memory Management:</strong> A <code>Student</code> object is created in the Heap, while the reference variables (`s1`, `s2`, `s3`) are stored in the Stack holding the memory addresses.</li>
-          <li><strong>Shared References:</strong> I learned that when multiple variables point to the same object (like <code>s3 = s2</code>), they share the exact same Heap data.</li>
-          <li><strong>Data Mutation:</strong> Because <code>s3</code> and <code>s2</code> pointed to the same object, changing <code>s3.name</code> to "Ana" also changed what <code>s2</code> outputted, permanently overwriting "Maria" in the Heap.</li>
-        </ul>
-
-        <h3>The Code Execution</h3>
-        <p>Below is the logic analyzed during the activity, focusing on tracking memory states across object instantiation and mutation.</p>
+        <p>In this activity, I analyzed a Java program to trace object references and memory changes step-by-step...</p>
       </div>
 
       <div class="mac-window">
         <div class="mac-chrome">
-          <div class="traffic-lights">
-            <span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span>
-          </div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
           <span class="file-name">TestStudent.java</span>
         </div>
         <div class="code-content">
@@ -165,71 +44,28 @@
         name = n;
         grade = g;
     }
-}
-
-<span class="kw">public class</span> <span class="cl">TestStudent</span> {
-    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
-        <span class="cl">Student</span> s1 = <span class="kw">new</span> <span class="cl">Student</span>(<span class="st">"John"</span>, <span class="kw">85</span>);
-        <span class="cl">Student</span> s2 = <span class="kw">new</span> <span class="cl">Student</span>(<span class="st">"Maria"</span>, <span class="kw">90</span>);
-        <span class="cl">Student</span> s3 = s2;
-        
-        s1.grade = <span class="kw">95</span>;
-        s3.name = <span class="st">"Ana"</span>;
-        
-        System.out.println(s1.name + <span class="st">" "</span> + s1.grade);
-        System.out.println(s2.name + <span class="st">" "</span> + s2.grade);
-        System.out.println(s3.name + <span class="st">" "</span> + s3.grade);
-    }
 }</code></pre>
         </div>
       </div>
 
       <div class="prose">
         <h3>Attached Resources</h3>
-        <p>Review the full laboratory guidelines and output documents below.</p>
-        
         <div class="pdf-grid">
-          <a href="BSIT2-4_De Oro_China_CodeAnalysis#1.pdf" target="_blank" class="pdf-card">
-            <div class="pdf-icon"><i class="fa-solid fa-file-pdf"></i></div>
+          <a href="https://drive.google.com/file/d/1F9Y1jQeQT1DtUwj5_YiX6B0irCgHW6pV/view?usp=drive_link" target="_blank" class="pdf-card">
+            <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></img>
+              <i class="➜"></i></div>
             <div class="pdf-info">
               <span class="pdf-name">DeOro_CodeAnalysis#1.pdf</span>
               <span class="pdf-meta">Submitted Code & Trace Table</span>
             </div>
-            <div class="pdf-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+            <div class="pdf-action"><i class="➜"></i></div>
           </a>
         </div>
       </div>
-
     </article>
-  </div> 
-  
-  <footer>
-    <div class="footer-cta">
-      <a href="https://www.linkedin.com/in/china-de-oro/" target="_blank" class="social-circle"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://github.com/lhycerie" target="_blank" class="social-circle"><i class="fa-brands fa-github"></i></a>
-      <a href="https://lhycerie.online" target="_blank" class="social-circle"><i class="fa-solid fa-globe"></i></a>
-      <a href="https://www.facebook.com/chindeoro" target="_blank" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
-    </div>
-    <div class="footer-bottom">
-      <div class="fb-center"><span>© China De Oro, 2026</span></div>
-      <div class="fb-right"><a href="#main-content" class="social-circle go-top-trigger"><i class="fa-solid fa-arrow-up"></i></a></div>
-    </div>
-  </footer>
+  </div>
 
-  <script>
-    const adjustLayout = () => {
-      const footer = document.querySelector('footer');
-      const main = document.getElementById('main-content');
-      if (footer && main) main.style.marginBottom = `${footer.offsetHeight}px`;
-    };
-    const observer = new ResizeObserver(adjustLayout);
-    document.querySelector('.article-container').parentElement && observer.observe(document.body);
-    window.addEventListener('resize', adjustLayout);
-    setTimeout(adjustLayout, 100);
-
-    document.querySelector('.go-top-trigger').addEventListener('click', (e) => {
-      e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+  <div id="footer-placeholder"></div>
+  <script src="../app.js"></script>
 </body>
 </html>
