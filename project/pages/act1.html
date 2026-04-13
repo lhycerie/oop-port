@@ -36,15 +36,31 @@
           <span class="file-name">TestStudent.java</span>
         </div>
         <div class="code-content">
-<pre><code><span class="kw">class</span> <span class="cl">Student</span> {
-    String name;
+<pre>
+<span class="kw">class</span> <span class="cl">Student</span> {
+    <span class="cl">String</span> name;
     <span class="kw">int</span> grade;
-
-    <span class="cl">Student</span>(String n, <span class="kw">int</span> g) {
+    <span class="fn">Student</span>(<span class="cl">String</span> n, <span class="kw">int</span> g) {
         name = n;
         grade = g;
     }
-}</code></pre>
+}
+
+<span class="kw">public class</span> <span class="cl">TestStudent</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="cl">Student</span> s1 = <span class="kw">new</span> <span class="fn">Student</span>(<span class="st">"John"</span>, <span class="kw">85</span>);
+        <span class="cl">Student</span> s2 = <span class="kw">new</span> <span class="fn">Student</span>(<span class="st">"Maria"</span>, <span class="kw">90</span>);
+        <span class="cl">Student</span> s3 = s2; <span class="cm">// Reference copy</span>
+
+        s1.grade = <span class="kw">95</span>;
+        s3.name = <span class="st">"Ana"</span>;
+
+        <span class="cl">System</span>.out.<span class="fn">println</span>(s1.name + <span class="st">" "</span> + s1.grade);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(s2.name + <span class="st">" "</span> + s2.grade);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(s3.name + <span class="st">" "</span> + s3.grade);
+    }
+}
+</pre>
         </div>
       </div>
 
