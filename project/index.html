@@ -143,16 +143,31 @@
     <section id="contact">
       <div class="section-inner">
         <div class="contact-layout">
+          
           <div>
             <h2 class="section-heading display sr sr-d1">Let's get<br/><em style="color:var(--c-accent);font-style:italic;">in touch.</em></h2>
             <p class="section-desc sr sr-d2" style="margin-top:1.25rem;">Have a question, or want to say hello?</p>
           </div>
-          <div class="contact-form sr sr-d3">
-            <div class="fg"><label>Name</label><input type="text" placeholder="Your name" /></div>
-            <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" /></div>
-            <div class="fg"><label>Message</label><textarea rows="5" placeholder="What's on your mind?"></textarea></div>
-            <button class="send-btn">Send message →</button>
-          </div>
+          
+          <form action="https://formspree.io/f/xojyvddw" method="POST" class="contact-form sr sr-d3">
+            <div class="fg">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your name" required />
+            </div>
+            
+            <div class="fg">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="your@email.com" required />
+            </div>
+            
+            <div class="fg">
+              <label>Message</label>
+              <textarea name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+            </div>
+            
+            <button type="submit" class="send-btn">Send message →</button>
+          </form>
+          
         </div>
       </div>
     </section>

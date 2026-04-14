@@ -283,7 +283,7 @@ h1.hero-name em { font-style: normal; color: var(--c-accent); }
   animation: rolesMarqueeReverse 35s linear infinite; /* Slightly faster for a cool parallax effect */
 }
 .role-item {
-  font-size: clamp(1rem, 2vw, 2rem); 
+  font-size: clamp(1.5rem, 2vw, 2rem); 
   font-weight: 800;
   color: var(--c-muted); 
   letter-spacing: 0.1em;
