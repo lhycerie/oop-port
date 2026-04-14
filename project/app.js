@@ -18,6 +18,7 @@ async function loadComponents() {
   }
 
   initSiteFeatures();
+  initTypewriter(); // Add the typewriter initiation here
 }
 
 function fixNavPaths() {
@@ -30,14 +31,60 @@ function fixNavPaths() {
 }
 
 function initHamburger() {
-  // Toggle
-const hamburger = document.querySelector('.nav-hamburger');
-const navMenu = document.querySelector('nav ul');
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navMenu = document.querySelector('nav ul');
 
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open'); // Animates the X
-  navMenu.classList.toggle('open');    // Animates the dropdown
-});
+  if(hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open'); 
+      navMenu.classList.toggle('open');    
+    });
+  }
+}
+
+function initTypewriter() {
+  const el = document.querySelector('.hero-name.typing');
+  if (!el) return;
+
+  const words = ["China De Oro", "チナ・デ・オロ"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  // Clear initially so JS takes over perfectly
+  el.textContent = "";
+
+  function type() {
+    const currentWord = words[wordIndex];
+
+    if (isDeleting) {
+      charIndex--;
+    } else {
+      charIndex++;
+    }
+
+    el.textContent = currentWord.substring(0, charIndex);
+
+    let typeSpeed = 120; // Typing speed
+
+    if (isDeleting) {
+      typeSpeed /= 2; // Delete faster
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      typeSpeed = 2500; // Pause at the end of the word
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      typeSpeed = 600; // Pause before starting the next word
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  // Start the typing effect after a small delay
+  setTimeout(type, 800);
 }
 
 function initSiteFeatures() {
@@ -51,7 +98,6 @@ function initSiteFeatures() {
     if (footer && mainContent) {
       if (vw > 768) {
         footer.style.position = 'fixed';
-        // This margin-bottom creates the "hole" for the reveal effect
         mainContent.style.marginBottom = `${footer.offsetHeight}px`;
       } else {
         footer.style.position = 'relative';
@@ -59,7 +105,8 @@ function initSiteFeatures() {
       }
     }
 
-    document.querySelectorAll('section[id]').forEach((sec, index) => {
+    // Notice the :not(#home) added here!
+    document.querySelectorAll('section[id]:not(#home)').forEach((sec, index) => {
       if (vw > 1024) {
         const h = sec.offsetHeight;
         sec.style.top = h > vh - 100 ? `calc(100vh - ${h}px - 2rem)` : `${5 + (index * 1.5)}rem`;
@@ -74,7 +121,6 @@ function initSiteFeatures() {
   if (mainContent) resizeObs.observe(mainContent);
   if (footer) resizeObs.observe(footer);
 
-  // Go to top
   document.addEventListener('click', e => {
     if (e.target.closest('.go-top-trigger')) {
       e.preventDefault();
@@ -82,7 +128,6 @@ function initSiteFeatures() {
     }
   });
 
-  // Simple Scroll Reveal
   const revObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.1 });
