@@ -30,6 +30,133 @@
         <p>This activity was all about mastering Java operators. I was tasked with creating a program utilizing at least five different categories of operators...</p>
       </div>
 
+      <div class="prose">
+        <h2>PART I</h2>
+      </div>
+
+      <div class="mac-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">bitwiseop.java</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="kw">public class</span> <span class="cl">bitwiseop</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="cm">//Bitwise AND on booleans (produces true)</span>
+        <span class="kw">boolean</span> boolVal = <span class="kw">true</span> &amp; <span class="kw">true</span>;
+
+        <span class="cm">//Bitwise AND on integers (14 &amp; 11 = 10)</span>
+        <span class="cm">//14: 1110, 11: 1011 -&gt; Result: 1010 (10)</span>
+        <span class="kw">int</span> intVal1 = 14 &amp; 11;
+
+        <span class="cm">//Bitwise XOR on booleans (true ^ true = false)</span>
+        <span class="kw">boolean</span> boolVal2 = <span class="kw">true</span> ^ <span class="kw">true</span>;
+
+        <span class="cm">//Bitwise OR on integers (13 | 11 = 15)</span>
+        <span class="cm">//13: 1101, 11: 1011 -&gt; Result: 1111 (15)</span>
+        <span class="kw">int</span> intVal2 = 13 | 11;
+
+        <span class="cl">System</span>.out.<span class="fn">println</span>(boolVal + <span class="st">", "</span> + intVal1 + <span class="st">", "</span> + boolVal2 + <span class="st">", "</span> + intVal2);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="mac-window terminal-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">Terminal</span>
+        </div>
+        <div class="code-content terminal-content">
+<pre><code>true, 10, false, 15</code></pre>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Reflection</h3>
+        <p>In this section, I explored bitwise operators like AND (&amp;), XOR (^), and OR (|). I learned how they can be used not only on boolean values for logical evaluation but also on integers by manipulating their binary representations.</p>
+      </div>
+
+
+      <div class="mac-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">ternaryop.java</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="kw">public class</span> <span class="cl">ternaryop</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="kw">boolean</span> first = (5 &gt; 2) ? <span class="kw">true</span> : <span class="kw">false</span>;      <span class="cm">// true</span>
+        <span class="kw">boolean</span> second = (10 &lt; 1) ? <span class="kw">true</span> : <span class="kw">false</span>;    <span class="cm">// false</span>
+        <span class="kw">int</span> third = (20 == 20) ? 25 : 50;            <span class="cm">// 25</span>
+        <span class="kw">int</span> fourth = (100 != 100) ? 10 : 30;         <span class="cm">// 30</span>
+
+        <span class="cl">System</span>.out.<span class="fn">println</span>(first + <span class="st">", "</span> + second + <span class="st">", "</span> + third + <span class="st">", "</span> + fourth);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="mac-window terminal-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">Terminal</span>
+        </div>
+        <div class="code-content terminal-content">
+<pre><code>true, false, 25, 30</code></pre>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Reflection</h3>
+        <p>The ternary operator provides a concise way to write simple if-else statements. It evaluates a boolean expression and chooses one of two values based on the result. I found it very helpful for assigning values cleanly without writing verbose blocks of conditional logic.</p>
+      </div>
+
+      <div class="mac-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">assignop.java</span>
+        </div>
+        <div class="code-content">
+<pre><code><span class="kw">public class</span> <span class="cl">assignop</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="kw">int</span> a = 53; a += 67;  <span class="cm">// Addition: 120</span>
+        <span class="kw">int</span> b = 110; b -= 40; <span class="cm">// Subtraction: 70</span>
+        <span class="kw">int</span> c = 12;  c *= 12; <span class="cm">// Multiplication: 144</span>
+        <span class="kw">int</span> d = 64;  d /= 4;  <span class="cm">// Division: 16</span>
+
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"Addition: "</span> + a);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"Subtraction: "</span> + b);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"Multiplication: "</span> + c);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"Division: "</span> + d);
+    }
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="mac-window terminal-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">Terminal</span>
+        </div>
+        <div class="code-content terminal-content">
+<pre><code>Addition: 120
+Subtraction: 70
+Multiplication: 144
+Division: 16</code></pre>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Reflection</h3>
+        <p>Compound assignment operators streamline arithmetic calculations by combining an operation with an assignment. They helped me realize how much boilerplate code can be reduced when modifying the value of an existing variable in place.</p>
+      </div>
+
+
+      <div class="prose">
+        <h2>PART II</h2>
+      </div>
+
       <div class="mac-window">
         <div class="mac-chrome">
           <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
@@ -37,13 +164,64 @@
         </div>
         <div class="code-content">
 <pre><code><span class="kw">public class</span> <span class="cl">program2</span> {
-    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
-        <span class="kw">int</span> k = <span class="kw">15</span>;
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="cm">//Output 1 (Numeric): Tricky unary case</span>
+        <span class="cm">//Logic: k = 15. ++k (16) + k-- (16).</span>
+        <span class="kw">int</span> k = 15;
         <span class="kw">int</span> trickyResult = ++k + k--;
-        System.out.println(trickyResult);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(trickyResult);
+
+        <span class="cm">//Output 2 (Numeric): Assignment with subtraction</span>
+        <span class="cm">//Logic: 250 - 67 = 183</span>
+        <span class="kw">int</span> balance = 250;
+        balance -= 67;
+        <span class="cl">System</span>.out.<span class="fn">println</span>(balance);
+
+        <span class="cm">//Output 3 (Numeric): Arithmetic with multiplication and modulo</span>
+        <span class="cm">//Logic: (12 * 4) % 7 -&gt; 48 % 7 = 6</span>
+        <span class="kw">int</span> factor = 12;
+        <span class="kw">int</span> modResult = (factor * 4) % 7;
+        <span class="cl">System</span>.out.<span class="fn">println</span>(modResult);
+
+        <span class="cm">//Output 4 (numeric): assignment operator (*=) + arithmetic (*)</span>
+        <span class="kw">int</span> lantern = 6;
+        lantern *= 11;
+        <span class="cl">System</span>.out.<span class="fn">println</span>(lantern);
+
+        <span class="cm">//Output 5 (Boolean): Relational and Logical OR</span>
+        <span class="cm">//Logic: (80 &gt;= 100) is false || (15 != 9) is true. Result: true</span>
+        <span class="kw">int</span> score = 80;
+        <span class="kw">boolean</span> bool1 = (score &gt;= 100) || (15 != 9);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(bool1);
+
+        <span class="cm">//Output 6 (Boolean): Logical NOT and Relational</span>
+        <span class="cm">//Logic: !(67 &lt; 25) -&gt; !(false) -&gt; true</span>
+        <span class="kw">int</span> level = 67;
+        <span class="kw">boolean</span> bool2 = !(level &lt; 25);
+        <span class="cl">System</span>.out.<span class="fn">println</span>(bool2);
     }
 }</code></pre>
         </div>
+      </div>
+
+      <div class="mac-window terminal-window">
+        <div class="mac-chrome">
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <span class="file-name">Terminal</span>
+        </div>
+        <div class="code-content terminal-content">
+<pre><code>32
+183
+6
+66
+true
+true</code></pre>
+        </div>
+      </div>
+
+      <div class="prose">
+        <h3>Reflection</h3>
+        <p>In Part 2, I combined various operators to see how they interact. The unary operator case evaluating prefix vs. postfix (`++k` vs `k--`) was especially insightful in understanding execution order. This exercise solidified my understanding of operator precedence and complex logical evaluations.</p>
       </div>
 
       <div class="prose">
