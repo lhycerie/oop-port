@@ -656,7 +656,7 @@ h1.hero-name em {
 }
 
 .roles-ticker-track.reverse {
-  animation: rolesMarqueeReverse 35s linear infinite;
+  animation: rolesMarqueeReverse 36s linear infinite;
   /* Slightly faster for a cool parallax effect */
 }
 
