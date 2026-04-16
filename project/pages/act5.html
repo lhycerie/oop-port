@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Activity 3 — China De Oro</title>
+    <title>Activity 5 — China De Oro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
@@ -24,7 +24,7 @@
                 <span class="article-tag">Activity 5</span>
                 <h1 class="article-title display">Personal Expense Tracker</h1>
                 <div class="article-meta">
-                    <span>➤ March 27, 2026</span>
+                    <span>➤ April 10 2026</span>
                 </div>
             </header>
 
@@ -38,20 +38,97 @@
                 <div class="mac-chrome">
                     <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
                             class="dot dg"></span></div>
-                    <span class="file-name">ATMWithdrawalLimit.java</span>
+                    <span class="file-name">ExpenseTrackerDeOro.java</span>
                 </div>
                 <div class="code-content">
                     <pre><code><span class="kw">import</span> java.util.Scanner;
 
-<span class="kw">public class</span> <span class="cl">ATMWithdrawalLimit</span> {
-    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args){
+<span class="kw">public class</span> <span class="cl">ExpenseTrackerDeOro</span> {
+
+    <span class="cm">//Display (void)</span>
+    <span class="kw">static void</span> <span class="fn">showHeader</span>() {
+        System.out.println(<span class="st">"\n================================"</span>);
+        System.out.println(<span class="st">"=== PERSONAL EXPENSE TRACKER ==="</span>);
+        System.out.println(<span class="st">"================================\n"</span>);
+    }
+
+    <span class="cm">//Calculate total expenses (non-void)</span>
+    <span class="kw">static double</span> <span class="fn">computeTotal</span>(<span class="kw">double</span> food, <span class="kw">double</span> transport, <span class="kw">double</span> entertainment, <span class="kw">double</span> other) {
+        <span class="kw">return</span> food + transport + entertainment + other;
+    }
+
+    <span class="cm">//Check budget status (non-void)</span>
+    <span class="kw">static</span> <span class="cl">String</span> <span class="fn">checkBudgetStatus</span>(<span class="kw">double</span> total, <span class="kw">double</span> budget) {
+        <span class="kw">if</span> (total > budget) {
+            <span class="kw">return</span> <span class="st">"Warning! Budget exceeded."</span>;
+        } <span class="kw">else</span> {
+            <span class="kw">return</span> <span class="st">"All Clear! Expenses within budget."</span>;
+        }
+    }
+
+    <span class="cm">// Display results (void)</span>
+    <span class="kw">static void</span> <span class="fn">displayExpenses</span>(<span class="cl">String</span> name, <span class="kw">double</span> total, <span class="kw">double</span> budget, <span class="cl">String</span> status) {
+        <span class="kw">double</span> remaining = budget - total;
+
+        System.out.println(<span class="st">"\n======================="</span>);
+        System.out.println(<span class="st">"=== EXPENSE SUMMARY ==="</span>);
+        System.out.println(<span class="st">"=======================\n"</span>);
+        System.out.println(<span class="st">"User: "</span> + name);
+        System.out.printf(<span class="st">"Total Expenses: %.2f%n"</span>, total);
+        System.out.printf(<span class="st">"Budget: %.2f%n"</span>, budget);
+        System.out.printf(<span class="st">"Remaining: %.2f%n\n"</span>, remaining);
+        System.out.println(<span class="st">"Status: "</span> + status);
+
+        <span class="cm">//Enhancement: Personalized messages</span>
+        <span class="kw">if</span> (remaining < <span class="kw">0</span>) {
+            System.out.println(<span class="st">"\nHi "</span> + name + <span class="st">"! Plan out your expenses carefully!."</span>);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        } <span class="kw">else</span> {
+            System.out.println(<span class="st">"\nGood work, "</span> + name + <span class="st">"! You're managing your expenses well!"</span>);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        }
+    }
+
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
         <span class="cl">Scanner</span> sc = <span class="kw">new</span> <span class="cl">Scanner</span>(System.in);
-        <span class="kw">double</span> balance = <span class="kw">9000.00</span>;
-        
-        <span class="cm">// Do-While Loop implementation</span>
-        <span class="kw">do</span> { 
-            System.out.println(<span class="st">"===== ATM MENU ====="</span>);
-        } <span class="kw">while</span> (choice != <span class="kw">4</span>);
+
+        showHeader();
+
+        <span class="cm">//Ask user for input</span>
+        System.out.print(<span class="st">"Enter your name: "</span>);
+        <span class="cl">String</span> name = sc.nextLine();
+
+        System.out.println(<span class="st">"\nEXPENSE CATEGORIES:"</span>);
+        System.out.print(<span class="st">"Food expense: "</span>);
+        <span class="kw">double</span> food = sc.nextDouble();
+
+        System.out.print(<span class="st">"Transportation expense: "</span>);
+        <span class="kw">double</span> transport = sc.nextDouble();
+
+        System.out.print(<span class="st">"Entertainment expense: "</span>);
+        <span class="kw">double</span> entertainment = sc.nextDouble();
+
+        System.out.print(<span class="st">"Other expenses: "</span>);
+        <span class="kw">double</span> other = sc.nextDouble();
+
+        System.out.println(<span class="st">"\nYOUR BUDGET:"</span>);
+        System.out.print(<span class="st">"Enter your budget: "</span>);
+        <span class="kw">double</span> budget = sc.nextDouble();
+
+        <span class="kw">if</span> (budget < <span class="kw">0</span> || food < <span class="kw">0</span> || transport < <span class="kw">0</span> || entertainment < <span class="kw">0</span> || other < <span class="kw">0</span>) {
+            System.out.println(<span class="st">"Your input is invalid! Please enter non-negative values."</span>);
+            sc.close();
+            <span class="kw">return</span>;
+        }
+
+        <span class="cm">//Calculate total expenses and check budget</span>
+        <span class="kw">double</span> total = computeTotal(food, transport, entertainment, other);
+        <span class="cl">String</span> status = checkBudgetStatus(total, budget);
+
+        <span class="cm">//Show the summary of expenses and budget status</span>
+        displayExpenses(name, total, budget, status);
+
+        sc.close();
     }
 }</code></pre>
                 </div>
@@ -64,33 +141,48 @@
                     <span class="file-name">Terminal</span>
                 </div>
                 <div class="code-content terminal-content">
-<pre><code>===== EXPENSE TRACKER =====
-1. Add Expense
-2. View Total
-Choose an option: 1
+                    <pre><code>
+================================
+=== PERSONAL EXPENSE TRACKER ===
+================================
 
-Enter amount: 150.00
-Enter category: Food
-Expense added successfully.
+Enter your name: China
 
-===== EXPENSE TRACKER =====
-1. Add Expense
-2. View Total
-Choose an option: 2
+EXPENSE CATEGORIES:
+Food expense: 230
+Transportation expense: 120
+Entertainment expense: 900
+Other expenses: 100
 
-Total Expenses: 150.00</code></pre>
+YOUR BUDGET:
+Enter your budget: 2000
+
+=======================
+=== EXPENSE SUMMARY ===
+=======================
+
+User: China
+Total Expenses: 1350.00
+Budget: 2000.00
+Remaining: 650.00
+
+Status: All Clear! Expenses within budget.
+
+Good work, China! You're managing your expenses well!
+=======================
+                    </code></pre>
                 </div>
             </div>
 
             <div class="prose">
                 <h3>Attached Resources</h3>
                 <div class="pdf-grid">
-                    <a href="https://drive.google.com/file/d/1iSnFeAzQsA76lWp79vw7OTjZakJuVDTX/view?usp=drive_link"
+                    <a href="https://drive.google.com/file/d/1R9Wg29b_EovX-s4QjybrSgi0wp-zv_C3/view?usp=sharing"
                         target="_blank" class="pdf-card">
                         <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></div>
                         <div class="pdf-info">
                             <span class="pdf-name">DeOro_Activity5.pdf</span>
-                            <span class="pdf-meta">Console Terminal Test Cases</span>
+                            <span class="pdf-meta">Other Terminal Output</span>
                         </div>
                         <div class="pdf-action"><i class="➜"></i></div>
                     </a>

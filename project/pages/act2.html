@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Activity 2 — China De Oro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
 
   <div id="main-content">
@@ -21,13 +24,14 @@
         <span class="article-tag">Activity 2</span>
         <h1 class="article-title display">Java Operators</h1>
         <div class="article-meta">
-          <span>➤  March 2, 2026</span>
+          <span>➤ March 2, 2026</span>
         </div>
       </header>
 
       <div class="prose">
         <h3>Explanation & Learnings</h3>
-        <p>This activity was all about mastering Java operators. I was tasked with creating a program utilizing at least five different categories of operators...</p>
+        <p>This activity was all about mastering Java operators. I was tasked with creating a program
+          utilizing different categories of operators such as bitwise, ternary, and assignment operators. </p>
       </div>
 
       <div class="prose">
@@ -36,11 +40,12 @@
 
       <div class="mac-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">bitwiseop.java</span>
         </div>
         <div class="code-content">
-<pre><code><span class="kw">public class</span> <span class="cl">bitwiseop</span> {
+          <pre><code><span class="kw">public class</span> <span class="cl">bitwiseop</span> {
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
         <span class="cm">//Bitwise AND on booleans (produces true)</span>
         <span class="kw">boolean</span> boolVal = <span class="kw">true</span> &amp; <span class="kw">true</span>;
@@ -64,27 +69,35 @@
 
       <div class="mac-window terminal-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">Terminal</span>
         </div>
         <div class="code-content terminal-content">
-<pre><code>true, 10, false, 15</code></pre>
+          <pre><code>true, 10, false, 15</code></pre>
         </div>
       </div>
 
       <div class="prose">
-        <h3>Reflection</h3>
-        <p>In this section, I explored bitwise operators like AND (&amp;), XOR (^), and OR (|). I learned how they can be used not only on boolean values for logical evaluation but also on integers by manipulating their binary representations.</p>
+        <h3>Part I – Question 1: Bitwise Operators</h3>
+        <p>
+          For this question, I had to produce the output: true, 10, false, 15 using bitwise operators.
+          I used bitwise AND on booleans to get true, AND on integers 14 and 11 to get 10, XOR on two
+          true booleans to get false, and OR on 13 and 11 to get 15. The trickiest part was thinking
+          in binary — I had to manually trace the bit patterns to make sure the operations would
+          produce the correct results.
+        </p>
       </div>
 
 
       <div class="mac-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">ternaryop.java</span>
         </div>
         <div class="code-content">
-<pre><code><span class="kw">public class</span> <span class="cl">ternaryop</span> {
+          <pre><code><span class="kw">public class</span> <span class="cl">ternaryop</span> {
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
         <span class="kw">boolean</span> first = (5 &gt; 2) ? <span class="kw">true</span> : <span class="kw">false</span>;      <span class="cm">// true</span>
         <span class="kw">boolean</span> second = (10 &lt; 1) ? <span class="kw">true</span> : <span class="kw">false</span>;    <span class="cm">// false</span>
@@ -99,26 +112,34 @@
 
       <div class="mac-window terminal-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">Terminal</span>
         </div>
         <div class="code-content terminal-content">
-<pre><code>true, false, 25, 30</code></pre>
+          <pre><code>true, false, 25, 30</code></pre>
         </div>
       </div>
 
       <div class="prose">
-        <h3>Reflection</h3>
-        <p>The ternary operator provides a concise way to write simple if-else statements. It evaluates a boolean expression and chooses one of two values based on the result. I found it very helpful for assigning values cleanly without writing verbose blocks of conditional logic.</p>
+        <h3>Part I – Question 2: Ternary Operators</h3>
+        <p>
+          This question required me to output: true, false, 25, 30 using the ternary operator. Each
+          value came from a condition being evaluated — whether it was true or false determined which
+          value got assigned to the variable. It was a good exercise in writing compact conditional
+          logic, and it made me appreciate how the ternary operator can replace simple if-else
+          statements in a single readable line.
+        </p>
       </div>
 
       <div class="mac-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">assignop.java</span>
         </div>
         <div class="code-content">
-<pre><code><span class="kw">public class</span> <span class="cl">assignop</span> {
+          <pre><code><span class="kw">public class</span> <span class="cl">assignop</span> {
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
         <span class="kw">int</span> a = 53; a += 67;  <span class="cm">// Addition: 120</span>
         <span class="kw">int</span> b = 110; b -= 40; <span class="cm">// Subtraction: 70</span>
@@ -136,11 +157,12 @@
 
       <div class="mac-window terminal-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">Terminal</span>
         </div>
         <div class="code-content terminal-content">
-<pre><code>Addition: 120
+          <pre><code>Addition: 120
 Subtraction: 70
 Multiplication: 144
 Division: 16</code></pre>
@@ -148,8 +170,14 @@ Division: 16</code></pre>
       </div>
 
       <div class="prose">
-        <h3>Reflection</h3>
-        <p>Compound assignment operators streamline arithmetic calculations by combining an operation with an assignment. They helped me realize how much boilerplate code can be reduced when modifying the value of an existing variable in place.</p>
+        <h3>Part I – Question 3: Assignment Operators</h3>
+        <p>
+          For this question, I used compound assignment operators to produce: Addition: 120,
+          Subtraction: 70, Multiplication: 144, and Division: 16. Instead of writing out full
+          expressions, I applied operators like +=, -=, *=, and /= directly onto the variables.
+          It was straightforward but reinforced how these shorthand operators modify a variable
+          in place rather than creating a new one.
+        </p>
       </div>
 
 
@@ -159,11 +187,12 @@ Division: 16</code></pre>
 
       <div class="mac-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">program2.java</span>
         </div>
         <div class="code-content">
-<pre><code><span class="kw">public class</span> <span class="cl">program2</span> {
+          <pre><code><span class="kw">public class</span> <span class="cl">program2</span> {
     <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
         <span class="cm">//Output 1 (Numeric): Tricky unary case</span>
         <span class="cm">//Logic: k = 15. ++k (16) + k-- (16).</span>
@@ -206,11 +235,12 @@ Division: 16</code></pre>
 
       <div class="mac-window terminal-window">
         <div class="mac-chrome">
-          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+          <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+              class="dot dg"></span></div>
           <span class="file-name">Terminal</span>
         </div>
         <div class="code-content terminal-content">
-<pre><code>32
+          <pre><code>32
 183
 6
 66
@@ -220,18 +250,26 @@ true</code></pre>
       </div>
 
       <div class="prose">
-        <h3>Reflection</h3>
-        <p>In Part 2, I combined various operators to see how they interact. The unary operator case evaluating prefix vs. postfix (`++k` vs `k--`) was especially insightful in understanding execution order. This exercise solidified my understanding of operator precedence and complex logical evaluations.</p>
+        <h3>Part II: Multi-Operator Program</h3>
+        <p>
+          Part II required combining at least five operator categories into one program with exactly
+          six outputs — four numeric and two boolean. The most challenging part was the tricky unary
+          case using ++k + k--, where I had to trace the order of evaluation carefully since
+          pre-increment and post-decrement behave differently within the same expression. Planning
+          each output ahead of time before writing the code helped me stay within the six-output
+          limit and meet all the requirements without overlap.
+        </p>
       </div>
 
       <div class="prose">
         <h3>Attached Resources</h3>
         <div class="pdf-grid">
-          <a href="https://drive.google.com/file/d/1Vc--sIjuj6vYmZ9Ln6GZehpvjKdvKQ0i/view?usp=sharing" target="_blank" class="pdf-card">
+          <a href="https://drive.google.com/file/d/1Vc--sIjuj6vYmZ9Ln6GZehpvjKdvKQ0i/view?usp=sharing" target="_blank"
+            class="pdf-card">
             <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></div>
             <div class="pdf-info">
               <span class="pdf-name">DeOro_Activity#2.pdf</span>
-              <span class="pdf-meta">Instructions & Console Logs</span>
+              <span class="pdf-meta">Other Terminal Output</span>
             </div>
             <div class="pdf-action"><i class="➜"></i></div>
           </a>
@@ -243,4 +281,5 @@ true</code></pre>
   <div id="footer-placeholder"></div>
   <script src="../app.js"></script>
 </body>
+
 </html>

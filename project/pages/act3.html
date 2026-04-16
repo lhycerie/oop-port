@@ -30,8 +30,26 @@
 
       <div class="prose">
         <h3>Explanation & Learnings</h3>
-        <p>For Activity 3, I developed an ATM Withdrawal Limit system to practice Java control structures. This required
-          a combination of looping and conditional logic...</p>
+        <p>
+          In order to practice Java control structures such as if-else and switch, we were tasked to create
+          an ATM Withdrawal Limit system. This activity has a combination of looping and conditionals.
+          At first, I was contemplating on what logic I can create using do-while, if-else, and switch on
+          one program. The brainstorming was hard. It is, especially when I forgot the syntax and the proper
+          logic that I intended to use while typing. I was able to create the program by breaking it into
+          blocks like "do(switch(cases & default)) while(condition)".
+        </p>
+        <p>
+          I realized that ATMs can be as simple as this — a balance variable, a loop to keep session
+          alive, and conditions. Writing the withdrawal logic was particularly insightful: I had to
+          account for edge cases like zero or negative amounts within an if-else chain. I memorized the
+          switch-case-break now, it wasn't that different from C after all. Real-world systems are really just layered
+          conditions built on top of each other.
+        </p>
+        <p>
+          To wrap up, this program made me understand how control flow works in Java and how
+          combining loops, conditionals, and switch statements can produce a functional program.
+          Breaking a problem into smaller, manageable blocks makes the coding process a lot less overwhelming.
+        </p>
       </div>
 
       <div class="mac-window">
@@ -42,16 +60,68 @@
         </div>
         <div class="code-content">
           <pre><code><span class="kw">import</span> java.util.Scanner;
-
-<span class="kw">public class</span> <span class="cl">ATMWithdrawalLimit</span> {
-    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args){
-        <span class="cl">Scanner</span> sc = <span class="kw">new</span> <span class="cl">Scanner</span>(System.in);
-        <span class="kw">double</span> balance = <span class="kw">9000.00</span>;
+  <span class="kw">public class</span> <span class="cl">ATMWithdrawalLimit</span>
+	<span class="kw">public static void</span> <span class="fn">main</span>(String[] args){
+    <span class="cl">Scanner</span> sc = <span class="kw">new</span> <span class="cl">Scanner</span>(System.in);
+    <span class="kw">double</span> balance = <span class="kw">9000.00</span>;
+    <span class="kw">int</span> choice;
+       
+<span class="kw">do</span> { 
+        System.out.println(<span class="st">"===== ATM MENU ====="</span>);
+        System.out.println(<span class="st">"1. Check Balance"</span>);
+        System.out.println(<span class="st">"2. Deposit"</span>);
+        System.out.println(<span class="st">"3. Withdraw"</span>);
+        System.out.println(<span class="st">"4. Exit"</span>);
+        System.out.println(<span class="st">"Enter your choice: "</span>);
         
-        <span class="cm">// Do-While Loop implementation</span>
-        <span class="kw">do</span> { 
-            System.out.println(<span class="st">"===== ATM MENU ====="</span>);
-        } <span class="kw">while</span> (choice != <span class="kw">4</span>);
+        choice = sc.nextInt();
+
+<span class="kw">switch</span> (choice) {
+    <span class="kw">case</span> <span class="kw">1</span>:
+        System.out.println(<span class="st">"\n===== ATM BALANCE ====="</span>);
+        System.out.printf(<span class="st">"Current Balance: PHP %.2f%n"</span>, balance);
+        System.out.println(<span class="st">"=======================\n"</span>);
+    <span class="kw">break</span>;
+
+    <span class="kw">case</span> <span class="kw">2</span>:
+        System.out.println(<span class="st">"\n===== ATM DEPOSIT ====="</span>);
+        System.out.println(<span class="st">"Enter deposit amount:"</span>);
+        <span class="kw">double</span> depositAmt = sc.nextDouble();
+        balance += depositAmt;
+        System.out.printf(<span class="st">"Deposit successful. Current Balance: PHP %.2f%n"</span>, balance);
+        System.out.println(<span class="st">"=======================\n"</span>);
+    <span class="kw">break</span>;
+    
+    <span class="kw">case</span> <span class="kw">3</span>:
+        System.out.println(<span class="st">"\n===== ATM WITHDRAWAL ====="</span>);
+        System.out.println(<span class="st">"Enter withdrawal amount:"</span>);
+        <span class="kw">double</span> withdrawAmt = sc.nextDouble();
+        <span class="kw">if</span> (withdrawAmt <= <span class="kw">0</span>) {
+            System.out.println(<span class="st">"Error! Amount must be greater than zero."</span>);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        } <span class="kw">else if</span> (withdrawAmt > balance) {
+            System.out.println(<span class="st">"Error! Insufficient account balance."</span>);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        } <span class="kw">else if</span> (withdrawAmt > <span class="kw">3000</span>) {
+            System.out.println(<span class="st">"Error! Withdrawal limit exceeded. Maximum amount is PHP3000.00."</span>);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        } <span class="kw">else</span> {
+            balance -= withdrawAmt;
+            System.out.printf(<span class="st">"Withdrawal successful. Current Balance: PHP %.2f%n"</span>, balance);
+            System.out.println(<span class="st">"=======================\n"</span>);
+        }
+    <span class="kw">break</span>;
+    
+    <span class="kw">case</span> <span class="kw">4</span>:
+        System.out.println(<span class="st">"Transaction ended. Thank you for using our ATM services."</span>);
+        System.out.println(<span class="st">"=======================\n"</span>);
+    <span class="kw">break</span>;
+    
+    <span class="kw">default</span>:
+        System.out.println(<span class="st">"Invalid choice. Please try again."</span>);
+        System.out.println(<span class="st">"=======================\n"</span>);
+    } 
+}   <span class="kw">while</span> (choice !=<span class="kw">4</span>);
     }
 }</code></pre>
         </div>
@@ -66,12 +136,15 @@
         <div class="code-content terminal-content">
           <pre><code>===== ATM MENU =====
 1. Check Balance
-2. Withdraw
-3. Deposit
+2. Deposit
+3. Withdraw
 4. Exit
-Choose an option: 1
+Enter your choice: 
+1
 
-Current Balance: 9000.00
+===== ATM BALANCE =====
+Current Balance: PHP 9000.00
+=======================
 </code></pre>
         </div>
       </div>
@@ -84,7 +157,7 @@ Current Balance: 9000.00
             <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></div>
             <div class="pdf-info">
               <span class="pdf-name">DeOro_Activity3.pdf</span>
-              <span class="pdf-meta">Console Terminal Test Cases</span>
+              <span class="pdf-meta">Other Terminal Outputs</span>
             </div>
             <div class="pdf-action"><i class="➜"></i></div>
           </a>

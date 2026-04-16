@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Activity 3 — China De Oro</title>
+    <title>Activity 4 — China De Oro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
@@ -22,7 +22,7 @@
 
             <header class="article-header">
                 <span class="article-tag">Activity 4</span>
-                <h1 class="article-title display">Student Library Borrowing System with Penalty Counter</h1>
+                <h1 class="article-title display">Student Payment System with Validation Counter</h1>
                 <div class="article-meta">
                     <span>➤ March 27, 2026</span>
                 </div>
@@ -30,27 +30,149 @@
 
             <div class="prose">
                 <h3>Explanation & Learnings</h3>
-                <p>For Activity 3, I developed an ATM Withdrawal Limit system to practice Java control structures. This
-                    required a combination of looping and conditional logic...</p>
+                <p>
+                    For this activity, we were tasked to create a Student Payment System that further challenges our
+                    understanding of Java control structures. Compared to the previous ATM program, this one had more
+                    moving parts — tracking a student's information, their remaining tuition balance, discount
+                    eligibility, and a transaction counter all at the same time. The structure was still built around
+                    a do-while loop with a switch statement, but the logic inside each case was noticeably more
+                    complex.
+                </p>
+                <p>
+                    One of the trickier parts was implementing the discount feature. I had to make sure that it could
+                    only be applied once, only to scholars, and only when there was still a remaining balance. Managing
+                    all three conditions without them conflicting with each other took some careful thinking. I handled
+                    it using a "discountCounter" variable that flags whether the discount has already been
+                    availed, which felt like a simple but effective solution.
+                </p>
+                <p>
+                    I also found it meaningful that the exit case wasn't just a goodbye message — it doubled as a
+                    transaction summary, displaying the student's name, ID, total number of transactions, and final
+                    balance. That detail made the program feel closer to something you'd actually encounter in a real
+                    school system.
+                </p>
             </div>
 
             <div class="mac-window">
                 <div class="mac-chrome">
                     <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
                             class="dot dg"></span></div>
-                    <span class="file-name">ATMWithdrawalLimit.java</span>
+                    <span class="file-name">BSIT2-4_De Oro_China_StudentPaymentSystem.java</span>
                 </div>
                 <div class="code-content">
-                    <pre><code><span class="kw">import</span> java.util.Scanner;
+                    <pre><code><span class="kw">package</span> midtermact4;
 
-<span class="kw">public class</span> <span class="cl">ATMWithdrawalLimit</span> {
-    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args){
+<span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="cl">StudentPaymentSystemDeOro</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(String[] args) {
         <span class="cl">Scanner</span> sc = <span class="kw">new</span> <span class="cl">Scanner</span>(System.in);
-        <span class="kw">double</span> balance = <span class="kw">9000.00</span>;
-        
-        <span class="cm">// Do-While Loop implementation</span>
-        <span class="kw">do</span> { 
-            System.out.println(<span class="st">"===== ATM MENU ====="</span>);
+
+        System.out.println(<span class="st">"===== STUDENT INFORMATION ====="</span>);
+        System.out.print(<span class="st">"Enter Student Name: "</span>);
+        <span class="cl">String</span> studNa = sc.nextLine();
+
+        System.out.print(<span class="st">"Enter Student ID: "</span>);
+        <span class="cl">String</span> studID = sc.nextLine();
+
+        System.out.print(<span class="st">"Enter Total Tuition Fee: PHP "</span>);
+        <span class="kw">double</span> tuition = sc.nextDouble();
+
+        <span class="kw">int</span> choice;
+        <span class="kw">double</span> balance = tuition;
+        <span class="kw">int</span> discountCounter = <span class="kw">0</span>;
+        <span class="kw">int</span> transactionCounter = <span class="kw">0</span>;
+
+        <span class="kw">do</span> {
+            System.out.println(<span class="st">"\n===== PAYMENT MENU ====="</span>);
+            System.out.println(<span class="st">"1. Pay Tuition"</span>);
+            System.out.println(<span class="st">"2. Check Balance"</span>);
+            System.out.println(<span class="st">"3. Apply Discount"</span>);
+            System.out.println(<span class="st">"4. Exit"</span>);
+            System.out.print(<span class="st">"Enter your choice: "</span>);
+
+            choice = sc.nextInt();
+
+            <span class="kw">switch</span> (choice) {
+                <span class="kw">case</span> <span class="kw">1</span>:
+                    System.out.println(<span class="st">"\n===== PAY TUITION ====="</span>);
+
+                    <span class="kw">if</span> (balance <= <span class="kw">0</span>) {
+                        System.out.println(<span class="st">"No remaining balance."</span>);
+                    } <span class="kw">else</span> {
+                        System.out.print(<span class="st">"Enter payment amount: PHP "</span>);
+                        <span class="kw">double</span> payment = sc.nextDouble();
+
+                        <span class="kw">if</span> (payment <= <span class="kw">0</span>) {
+                            System.out.println(<span class="st">"Error! Payment amount must be greater than zero."</span>);
+                        } <span class="kw">else if</span> (payment > balance) {
+                            System.out.println(<span class="st">"Invalid Payment"</span>);
+                        } <span class="kw">else</span> {
+                            balance -= payment;
+                            transactionCounter++;
+                            System.out.printf(<span class="st">"Payment successful. Remaining Balance: PHP %.2f%n"</span>, balance);
+
+                            <span class="kw">if</span> (balance <= <span class="kw">0</span>) {
+                                System.out.println(<span class="st">"No remaining balance."</span>);
+                            }
+                        }
+                    }
+                    <span class="kw">break</span>;
+
+                <span class="kw">case</span> <span class="kw">2</span>:
+                    System.out.println(<span class="st">"\n===== CHECK BALANCE ====="</span>);
+                    transactionCounter++;
+
+                    <span class="kw">if</span> (balance <= <span class="kw">0</span>) {
+                        System.out.println(<span class="st">"No remaining balance."</span>);
+                    } <span class="kw">else</span> {
+                        System.out.printf(<span class="st">"Remaining Balance: PHP %.2f%n"</span>, balance);
+                    }
+                    <span class="kw">break</span>;
+
+                <span class="kw">case</span> <span class="kw">3</span>:
+                    System.out.println(<span class="st">"\n===== APPLY DISCOUNT ====="</span>);
+
+                    <span class="kw">if</span> (balance <= <span class="kw">0</span>) {
+                        System.out.println(<span class="st">"No remaining balance."</span>);
+                    } <span class="kw">else if</span> (discountCounter == <span class="kw">1</span>) {
+                        System.out.println(<span class="st">"Discount already availed. It can only be applied once."</span>);
+                    } <span class="kw">else</span> {
+                        System.out.println(<span class="st">"Select Student Type:"</span>);
+                        System.out.println(<span class="st">"1. Regular Student"</span>);
+                        System.out.println(<span class="st">"2. Scholar"</span>);
+                        System.out.print(<span class="st">"Enter choice: "</span>);
+
+                        <span class="kw">int</span> studType = sc.nextInt();
+
+                        <span class="kw">if</span> (studType == <span class="kw">2</span>) {
+                            <span class="kw">double</span> discount = balance * <span class="kw">0.20</span>;
+                            balance -= discount;
+                            discountCounter++;
+                            transactionCounter++;
+                            System.out.printf(<span class="st">"Discount applied: PHP %.2f%n"</span>, discount);
+                            System.out.printf(<span class="st">"New Balance: PHP %.2f%n"</span>, balance);
+                        } <span class="kw">else if</span> (studType == <span class="kw">1</span>) {
+                            System.out.println(<span class="st">"Regular students are not eligible for discount."</span>);
+                            transactionCounter++;
+                        } <span class="kw">else</span> {
+                            System.out.println(<span class="st">"Error! Please enter a valid choice."</span>);
+                        }
+                    }
+                    <span class="kw">break</span>;
+
+                <span class="kw">case</span> <span class="kw">4</span>:
+                    System.out.println(<span class="st">"\n===== TRANSACTION SUMMARY ====="</span>);
+                    System.out.println(<span class="st">"Student Name: "</span> + studNa);
+                    System.out.println(<span class="st">"Student ID: "</span> + studID);
+                    System.out.println(<span class="st">"Total Transactions: "</span> + transactionCounter);
+                    System.out.printf(<span class="st">"Final Balance: PHP %.2f%n"</span>, balance);
+                    System.out.println(<span class="st">"Transaction ended. Thank you for using our student service."</span>);
+                    <span class="kw">break</span>;
+
+                <span class="kw">default</span>:
+                    System.out.println(<span class="st">"Error! Please try again from the menu."</span>);
+            }
         } <span class="kw">while</span> (choice != <span class="kw">4</span>);
     }
 }</code></pre>
@@ -64,25 +186,32 @@
                     <span class="file-name">Terminal</span>
                 </div>
                 <div class="code-content terminal-content">
-<pre><code>===== LIBRARY MENU =====
-1. Borrow Book
-2. Return Book
-Choose an option: 1
+                    <pre><code>===== STUDENT INFORMATION =====
+Enter Student Name: China
+Enter Student ID: 2024-02641
+Enter Total Tuition Fee: PHP 10000
 
-Enter book title: "Object-Oriented Programming"
-Book borrowed successfully. Due in 7 days.</code></pre>
+===== PAYMENT MENU =====
+1. Pay Tuition
+2. Check Balance
+3. Apply Discount
+4. Exit
+Enter your choice: 2
+
+===== CHECK BALANCE =====
+Remaining Balance: PHP 10000.00</code></pre>
                 </div>
             </div>
 
             <div class="prose">
                 <h3>Attached Resources</h3>
                 <div class="pdf-grid">
-                    <a href="https://drive.google.com/file/d/1iSnFeAzQsA76lWp79vw7OTjZakJuVDTX/view?usp=drive_link"
+                    <a href="https://drive.google.com/file/d/1fL-sVtlK8mQAmLv8vaSsE2ZBjhqE3BYh/view?usp=sharing"
                         target="_blank" class="pdf-card">
                         <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></div>
                         <div class="pdf-info">
-                            <span class="pdf-name">DeOro_Activity3.pdf</span>
-                            <span class="pdf-meta">Console Terminal Test Cases</span>
+                            <span class="pdf-name">DeOro_Activity4.pdf</span>
+                            <span class="pdf-meta">Other Terminal Output</span>
                         </div>
                         <div class="pdf-action"><i class="➜"></i></div>
                     </a>
