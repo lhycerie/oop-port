@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Midterms — China De Oro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div id="main-content">
+        <div id="nav-placeholder"></div>
+
+        <article class="article-container">
+            <a href="../index.html#midterm" class="back-btn">← Back to Midterms</a>
+
+            <header class="article-header">
+                <span class="article-tag">Examination</span>
+                <h1 class="article-title display">Midterm Exam</h1>
+                <div class="article-meta">
+                    <span>➤ April 22, 2026</span>
+                </div>
+            </header>
+
+            <div class="prose">
+                <h3>Explanation & Learnings</h3>
+                <p>
+                    For this activity, we were tasked to create a Student Payment System that further challenges our
+                    understanding of Java control structures. Compared to the previous ATM program, this one had more
+                    moving parts — tracking a student's information, their remaining tuition balance, discount
+                    eligibility, and a transaction counter all at the same time. The structure was still built around
+                    a do-while loop with a switch statement, but the logic inside each case was noticeably more
+                    complex.
+                </p>
+                <p>
+                    One of the trickier parts was implementing the discount feature. I had to make sure that it could
+                    only be applied once, only to scholars, and only when there was still a remaining balance. Managing
+                    all three conditions without them conflicting with each other took some careful thinking. I handled
+                    it using a "discountCounter" variable that flags whether the discount has already been
+                    availed, which felt like a simple but effective solution.
+                </p>
+                <p>
+                    I also found it meaningful that the exit case wasn't just a goodbye message — it doubled as a
+                    transaction summary, displaying the student's name, ID, total number of transactions, and final
+                    balance. That detail made the program feel closer to something you'd actually encounter in a real
+                    school system.
+                </p>
+            </div>
+
+
+    <div id="footer-placeholder"></div>
+    <script src="../app.js"></script>
+</body>
+
+</html>
