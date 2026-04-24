@@ -30,14 +30,41 @@
 
       <div class="prose">
         <h3>Explanation & Learnings</h3>
-        <p>In this seatwork, the topic was about increment and decrement operators in Java. The concept is really just the same as C so, it
-            was easier to grasp. However, the problems given can get really complex when there are a lot of incrementing involved.
-            I had to analyze a Java program to determine the output, which involved tracing the changes in variable values as the program executed.
-            This exercise helped me understand how pre-increment and post-increment operators work like "++a" and "a++", as well as how they affect the flow of the program.
-            It was interesting to see how the order of operations can lead to different results, and it reinforced the importance of understanding operator precedence in programming.
+        <p>I wasn't able to take this seatwork but the topic was about increment and decrement operators in Java.
+          The problems given can get really complex when there are a lot of incrementing involved. Since I have
+          studied this, below is an example of how these operators work.
+        <div class="mac-window">
+          <div class="mac-chrome">
+            <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+                class="dot dg"></span></div>
+            <span class="file-name">Example.java</span>
+          </div>
+          <div class="code-content">
+            <pre>
+<span class="kw">int</span> a = <span class="kw">12</span>, b = <span class="kw">10</span>, c = <span class="kw">8</span>;
+
+<span class="cm">// a uses 12 then becomes 13, b uses 10 then becomes 11</span>
+a++ + b++;  <span class="cm">// 12 + 10 = 22</span>
+
+<span class="cm">// b uses 11 then becomes 12, c decreases to 7 and is used</span>
+b++ - --c;  <span class="cm">// 11 - 7 = 4</span>
+
+<span class="cm">// a increases to 14 and is used, c decreases to 6 and is used</span>
+++a + --c;  <span class="cm">// 14 + 6 = 20</span>
+
+<span class="cm">// b increases to 13 and is used, a increases to 15 and is used</span>
+++b + ++a;  <span class="cm">// 13 + 15 = 28</span>
+</pre>
+          </div>
+        </div>
+        <br><br>
+        <p>
+          It was interesting to see how the order of operations can lead to different results, and it reinforced the
+          importance of understanding operator precedence in programming as this can affect your outputs.
         </p>
-      </div>
     </article>
+  </div>
+
   </div>
   <div id="footer-placeholder"></div>
   <script src="../app.js"></script>

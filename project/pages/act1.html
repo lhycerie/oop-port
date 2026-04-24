@@ -30,17 +30,126 @@
 
       <div class="prose">
         <h3>Explanation & Learnings</h3>
-        <p>In this activity, the main focus was to analyze a Java program — included below — to identify the variables used, its data
+        <p>In this activity, the main focus was to analyze a Java program — included in Part C — to identify the
+          variables used, its data
           types, and where they are stored in memory.
           I also provided explanation on how the logic works; specifically, tracing object references and memory
           changes.
-          <br></br>Java was a lot more complicated than I thought compared to other languages I learned like C or
+        </p>
+
+        <h3>Part A: Variable Identification Table</h3>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Variable Name</th>
+                <th>Data Type</th>
+                <th>Variable Type</th>
+                <th>Stored in</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>instance</td>
+                <td>heap</td>
+              </tr>
+              <tr>
+                <td>grade</td>
+                <td>int</td>
+                <td>instance</td>
+                <td>heap</td>
+              </tr>
+              <tr>
+                <td>n</td>
+                <td>String</td>
+                <td>local</td>
+                <td>stack</td>
+              </tr>
+              <tr>
+                <td>g</td>
+                <td>int</td>
+                <td>local</td>
+                <td>stack</td>
+              </tr>
+              <tr>
+                <td>s1</td>
+                <td>Student</td>
+                <td>reference</td>
+                <td>stack</td>
+              </tr>
+              <tr>
+                <td>s2</td>
+                <td>Student</td>
+                <td>reference</td>
+                <td>stack</td>
+              </tr>
+              <tr>
+                <td>s3</td>
+                <td>Student</td>
+                <td>reference</td>
+                <td>stack</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          Java was a lot more complicated than I thought compared to other languages I learned like C or
           Python. But they were all just the same in having to understand how memory is allocated and managed across the
-          program's lifecycle. Variable types like instance is stored in the heap, while local and reference variables are both in
+          program's lifecycle. Variable types like instance is stored in the heap, while local and reference variables
+          are both in
           stack.
           One of the most fulfilling aspects of this activity was realizing that I can determine the output even if I
           haven't ran the program.
         </p>
+        <h3>Part B: Explanation</h3>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Statement</th>
+                <th>What Happens?</th>
+                <th>Memory Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Student s1 = new Student("John", 85);</code></td>
+                <td>Variable Student sets the name to "John" and the grade to "85".</td>
+                <td>A Student object is created in the Heap. s1 in the stack stores the memory address.</td>
+              </tr>
+              <tr>
+                <td><code>Student s2 = new Student("Maria", 90);</code></td>
+                <td>Variable Student sets the name to "Maria" and the grade to "90".</td>
+                <td>A Student object is created in the Heap. s2 in the stack stores the memory address.</td>
+              </tr>
+              <tr>
+                <td><code>Student s3 = s2;</code></td>
+                <td>The reference address on s2 is copied to s3.</td>
+                <td>Both s2 and s3 now point to the exact same object in the Heap ("Maria", 90).</td>
+              </tr>
+              <tr>
+                <td><code>s1.grade = 95;</code></td>
+                <td>Overwrites the grade assigned in s1 (85), thus resulting in 95.</td>
+                <td>The value in first object's grade field in the Heap changes from 85 to 95.</td>
+              </tr>
+              <tr>
+                <td><code>s3.name = "Ana";</code></td>
+                <td>Overwrites the name assigned in s3 (Maria), thus resulting in "Ana".</td>
+                <td>Because s3 and s2 point to the same object, changing s3.name also changed s2.name. The object in the
+                  heap has the name "Ana" now.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Creating this explanation table really helped me to understand object references better.
+          It's fascinating how multiple variables can point to the exact same object in the heap. Seeing that changing
+          s3.name also changed s2.name due to overwriting s3 reference variable was just like how pointers work in C. It
+          proved that they aren't independent copies, but rather shared references.
+        </p>
+
+        <h3>Part C: TestStudent.java</h3>
       </div>
 
       <div class="mac-window">
@@ -92,6 +201,11 @@ Ana 90</code></pre>
       </div>
 
       <div class="prose">
+        <p>Finally, reviewing the actual code and terminal output confirmed my manual trace. It was incredibly
+          satisfying to see the terminal print out exactly what I had predicted in my analysis. This practical
+          verification gave me a lot of confidence in my ability to trace memory allocation and variable states without
+          relying entirely on the compiler to tell me what happens.</p>
+
         <h3>Attached Resources</h3>
         <div class="pdf-grid">
           <a href="https://drive.google.com/file/d/1F9Y1jQeQT1DtUwj5_YiX6B0irCgHW6pV/view?usp=drive_link"

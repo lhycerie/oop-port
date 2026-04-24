@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 1 — China De Oro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div id="main-content">
+        <div id="nav-placeholder"></div>
+
+        <article class="article-container">
+            <a href="../index.html#midterm" class="back-btn">← Back to Midterms</a>
+
+            <header class="article-header">
+                <span class="article-tag">Assignment 1</span>
+                <h1 class="article-title display">The Foundation of Java</h1>
+                <div class="article-meta">
+                    <span>➤ February 18, 2026</span>
+                </div>
+            </header>
+
+            <div class="prose">
+                <h3>Explanation & Learnings</h3>
+                <p>
+                    Reflecting on the foundations of Java, the concept of "Write Once, Run Anywhere"
+                    (WORA) is honestly impressive, as it addresses the challenges of cross-platform
+                    compatibility. By using a Java compiler to transform source code into bytecode rather than direct
+                    machine code, Java creates a universal language that any system with a Java Virtual Machine (JVM)
+                    can understand. This architecture demonstrates how a clever intermediate step can bridge the gap
+                    between different operating systems.
+                </p>
+                <div class="qa-box">
+                    <p><strong>
+                            1. What is Java programming language? Discuss its key features and advantages.
+                        </strong></p>
+                    <p>
+                        Java is a high-level, object-oriented programming language developed by Sun Microsystems
+                        on 1995 (now Oracle). The first stable version was released on 1996.
+                    <p><strong>Key Features:</strong>
+                    <ul>
+                        <li><strong>Object-oriented</strong> - Java uses objects &amp; classes to organize code and
+                            supports: encapsulation, inheritance, polymorphism, and abstraction.</li>
+                        <li><strong>Platform Independent</strong> - Java programs can run on any system without
+                            modification. (Write Once, Run Anywhere).</li>
+                        <li><strong>Simple &amp; Secure</strong> - Easy to learn compared to C++. Also, provides
+                            built-in
+                            security features such as no direct memory access and bytecode verification.</li>
+                        <li><strong>Robust &amp; Portable</strong> - Java has strong memory management, exception
+                            handling
+                            and type checking. It also can run on any OS such as Windows, MacOS and Linux.</li>
+                    </ul>
+                    </p>
+                </div>
+
+                <div class="qa-box">
+                    <p><strong>
+                            2. Explain the concept of platform independence in Java. How does Java achieve it?
+                        </strong></p>
+                    <p>
+                        Platform independence means that the program can be ran on any operating system without changing
+                        the code. How Java achieves platform independence depends on the java source code (.java) and
+                        file compiler bytecode (.class). During compilation, the Java compiler (Javac) compiles the
+                        file into an immediate representation called bytecode. Next, the JVM which is platform-specific
+                        and installed separately in each OS, reads and executes bytecode. So, JVM is platform-dependent
+                        and the bytecode is platform-independent. This is the core mechanism behind WORA.
+                    </p>
+                </div>
+                <div class="qa-box">
+                    <p><strong>
+                            3. Discuss the main components of a Java program and their roles.
+                        </strong></p>
+                    <div class="mac-window" style="margin-bottom: 1.5rem;">
+                        <div class="mac-chrome">
+                            <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+                                    class="dot dg"></span></div>
+                            <span class="file-name">Hello.java</span>
+                        </div>
+                        <div class="code-content">
+                            <pre>
+<span class="kw">public class</span> <span class="cl">Hello</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"Hello world"</span>);
+    }
+}</pre>
+                        </div>
+                    </div>
+                    <ul>
+                        <li><strong>Class</strong> = public class Hello → a class is a blueprint for objects,
+                            every Java program must have at least one class.</li>
+                        <li><strong>main() method</strong> = public static void main(String[] args) → entry point of the
+                            program. Java execution starts here.</li>
+                        <li><strong>Access Modifier</strong> = public → defines visibility.</li>
+                        <li><strong>static keyword</strong> → the method belongs to the class, not an object.</li>
+                        <li><strong>void keyword</strong> → the method does not return any value.</li>
+                        <li><strong>method body</strong> → contains instructions to execute.</li>
+                        <li><strong>statement</strong> → displays output.</li>
+                    </ul>
+                </div>
+
+                <div class="qa-box">
+                    <p><strong>4. What are the differences between JDK, JRE and JVM?</strong></p>
+                    <ul>
+                        <li><strong>JVM (Java Virtual Machine)</strong> - JVM runs Java programs. Functions: executes
+                            bytecode, converts bytecode to machine code.</li>
+                        <li><strong>JRE (Java Runtime Environment)</strong> - JRE provides the environment to run Java
+                            programs. Contains: JVM, libraries, files. JRE = JVM + libraries.</li>
+                        <li><strong>JDK (Java Development Kit)</strong> - JDK is used to develop Java programs.
+                            Contains: JRE, compiler (Javac), tools (debugger). JDK = JRE + dev tools.</li>
+                    </ul>
+                </div>
+
+                <div class="qa-box">
+                    <p><strong>
+                            5. Explain the difference between interpreted and compiled languages. Is Java interpreted or
+                            compiled?
+                        </strong></p>
+                    <p>Java is both compiled and interpreted. Compiled language means that the source code is converted
+                        into machine code before execution. It is platform-dependent.</p>
+                    <p><em>Source code → compiler → machine code → Run</em></p>
+                    <p><strong>Interpreted Language</strong> means that the code is executed line-by-line by an
+                        interpreter. It is platform-independent.</p>
+                    <p><em>Source code → Interpreter → run directly</em></p>
+                    <p> Java is considered compiled and interpreted because of the nature of the language and its
+                        compilation processes.
+                    </p>
+                    <ul>
+                        <li><strong>Compiled:</strong> Java source code → compiled into bytecode</li>
+                        <li><strong>Interpreted:</strong> JVM interprets bytecode → machine code</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="prose">
+                <h3>Attached Resources</h3>
+                <div class="pdf-grid">
+                    <a href="https://drive.google.com/file/d/17XGF9dnhYUSCBJUIdvtoPoXb2y4xZHer/view?usp=drive_link"
+                        target="_blank" class="pdf-card">
+                        <div class="pdf-icon"><img src="../assets/logo/others/file.svg" width="24" height="24"></div>
+                        <div class="pdf-info">
+                            <span class="pdf-name">DeOro_Assignment1.pdf</span>
+                            <span class="pdf-meta">Written Work</span>
+                        </div>
+                        <div class="pdf-action"><i class="➜"></i></div>
+                    </a>
+                </div>
+            </div>
+    </div>
+    </article>
+
+
+
+    <div id="footer-placeholder"></div>
+    <script src="../app.js"></script>
+</body>
+
+</html>

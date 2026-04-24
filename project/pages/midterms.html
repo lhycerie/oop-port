@@ -31,25 +31,56 @@
             <div class="prose">
                 <h3>Explanation & Learnings</h3>
                 <p>
-                    For this activity, we were tasked to create a Student Payment System that further challenges our
-                    understanding of Java control structures. Compared to the previous ATM program, this one had more
-                    moving parts — tracking a student's information, their remaining tuition balance, discount
-                    eligibility, and a transaction counter all at the same time. The structure was still built around
-                    a do-while loop with a switch statement, but the logic inside each case was noticeably more
-                    complex.
+                    The midterm covered topics from Lessons 1 to 6, which included Java history, OOP principles,
+                    program structure, data types, operators, and control flow. Topics like bitwise operators and
+                    increment/decrement behavior required more than just reading — I actually had to trace through
+                    the logic to fully get it. I thought I had a good enough grip on most of it going in, but the true
+                    or false section proved otherwise. A lot of the statements were worded in a way that made me
+                    second-guess myself.
                 </p>
                 <p>
-                    One of the trickier parts was implementing the discount feature. I had to make sure that it could
-                    only be applied once, only to scholars, and only when there was still a remaining balance. Managing
-                    all three conditions without them conflicting with each other took some careful thinking. I handled
-                    it using a "discountCounter" variable that flags whether the discount has already been
-                    availed, which felt like a simple but effective solution.
+                    Part 2 being multiple choice made it more manageable since at least having options to choose from
+                    helped narrow things down. I got through it without as much trouble compared to the first part.
                 </p>
+
+                <p> Part 3 was coding, and since I had the syntax memorized it went relatively smooth — except for one
+                    method where I forgot to divide the variables and return the result. It was a small mistake but
+                    the kind that costs points, which was frustrating because I actually knew how to do it.
+                    Here's the Scanner syntax I memorized:
+                </p>
+                <div class="mac-window">
+                    <div class="mac-chrome">
+                        <div class="traffic-lights"><span class="dot dr"></span><span class="dot dy"></span><span
+                                class="dot dg"></span></div>
+                        <span class="file-name">BasicScanner.java</span>
+                    </div>
+                    <div class="code-content">
+                        <pre>
+<span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">public class</span> <span class="cl">BasicScanner</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="cl">String</span>[] args) {
+        <span class="cl">Scanner</span> sc = <span class="kw">new</span> <span class="fn">Scanner</span>(<span class="cl">System</span>.in);
+
+        <span class="cl">System</span>.out.<span class="fn">print</span>(<span class="st">"Enter ID and Score: "</span>);
+        <span class="kw">int</span> id = sc.<span class="fn">nextInt</span>();          <span class="cm">// Parses integer</span>
+        <span class="kw">double</span> score = sc.<span class="fn">nextDouble</span>(); <span class="cm">// Parses double</span>
+
+        <span class="cl">System</span>.out.<span class="fn">println</span>(<span class="st">"ID: "</span> + id + <span class="st">" | Score: "</span> + score);
+        sc.<span class="fn">close</span>();
+    }
+}
+</pre>
+                    </div>
+                </div>
+                <br><br>
                 <p>
-                    I also found it meaningful that the exit case wasn't just a goodbye message — it doubled as a
-                    transaction summary, displaying the student's name, ID, total number of transactions, and final
-                    balance. That detail made the program feel closer to something you'd actually encounter in a real
-                    school system.
+                    The part that really got me was the increment and decrement questions. I struggled with tracing
+                    through prefix and postfix in longer expressions. I think I got the first two right, but there was
+                    one question involving a and b where I put false as the output. It wasn't until I got home that I
+                    realized it was actually testing bitwise operators — and when &amp; is used with booleans, it
+                    doesn't short-circuit, meaning both sides still get evaluated. To be honest, it was a fulfilling
+                    exam.
                 </p>
             </div>
         </article>
