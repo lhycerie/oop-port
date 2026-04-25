@@ -614,6 +614,11 @@ h1.hero-name em {
   color: #7ea172;
 }
 
+.code-content .cm {
+  color: #8e7768;
+  font-style: italic;
+}
+
 /* TEXT ROLES TICKER */
 .roles-ticker-wrap {
   overflow: hidden;
