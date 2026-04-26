@@ -19,6 +19,7 @@ async function loadComponents() {
 
   initSiteFeatures();
   initTypewriter(); // Add the typewriter initiation here
+  initGoToTopButton();
 }
 
 function fixNavPaths() {
@@ -28,6 +29,25 @@ function fixNavPaths() {
       link.href = link.getAttribute('href').replace('../', '');
     });
   }
+}
+
+function initGoToTopButton() {
+  const isRoot = !window.location.pathname.includes('/pages/');
+  if (isRoot) return;
+
+  const btn = document.createElement('button');
+  btn.className = 'go-top-trigger go-top-float';
+  btn.innerHTML = '↑';
+  btn.title = 'Go to top';
+  document.body.appendChild(btn);
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
 }
 
 function initHamburger() {
