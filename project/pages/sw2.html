@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seatwork 2 — China De Oro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div id="main-content">
+        <div id="nav-placeholder"></div>
+
+        <article class="article-container">
+            <a href="../index.html#midterm" class="back-btn">← Back to Midterms</a>
+
+            <header class="article-header">
+                <span class="article-tag">Seatwork 2</span>
+                <h1 class="article-title display">Java Coding on Paper</h1>
+                <div class="article-meta">
+                    <span></i>➤ March 2026 </span>
+                </div>
+            </header>
+
+            <div class="prose">
+                <h3>Explanation & Learnings</h3>
+                <p>
+                    During this seatwork, we coded a problem on paper. It was about a student payment system,
+                    handling discounts and typical balance checking. It was hard for me as the lesson is still
+                    fresh inside my mind, and I'm still processing everything. Though, I learned how to make programs
+                    using the Scanner class for user input.
+                    Writing the logic on paper helped me realize that increment/decrement operators become much
+                    trickier when combined with Switch-Break and If-Else statements but I managed.
+                    The most important part was tracing exactly when a variable updates before the next line of code
+                    executes.
+                    Below is some of the rough code/logic I used for this seatwork.
+                </p>
+
+                <div class="mac-window">
+                    <div class="mac-chrome">
+                        <div class="traffic-lights">
+                            <span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span>
+                        </div>
+                        <span class="file-name">SeatworkScanner.java</span>
+                    </div>
+                    <div class="code-content">
+                        <pre>
+<span class="kw">import</span> java.util.Scanner;
+
+<span class="kw">Scanner</span> sc = <span class="kw">new</span> <span class="kw">Scanner</span>(System.in);
+<span class="kw">int</span> a = sc.nextInt(); <span class="cm">// Input: 10</span>
+<span class="kw">int</span> b = sc.nextInt(); <span class="cm">// Input: 5</span>
+
+<span class="kw">int</span> choice = sc.nextInt();
+
+<span class="kw">switch</span> (choice) {
+    <span class="kw">case</span> 1:
+        <span class="cm">// Post-increment: uses 10, then a becomes 11</span>
+        <span class="kw">int</span> result = a++ + b; 
+        <span class="kw">break</span>;
+    <span class="kw">case</span> 2:
+        <span class="cm">// Pre-decrement: b becomes 4, then used</span>
+        <span class="kw">int</span> result = a + --b;
+        <span class="kw">break</span>;
+}
+
+<span class="kw">if</span> (a > 10) {
+    System.out.print(<span class="st">"Incremented"</span>);
+} <span class="kw">else</span> {
+    System.out.print(<span class="st">"Original"</span>);
+}
+</pre>
+                    </div>
+                </div>
+                <br>
+                <p>
+                    Refining the code into scanner syntax made me realize how crucial the "break;" statement
+                    is to prevent "fall-through" logic, and how "if-else" helps in making logic or error handling.
+                </p>
+        </article>
+    </div>
+
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="../app.js"></script>
+</body>
+
+</html>
